@@ -101,7 +101,7 @@ ParticleAnimator:
   Does Animate Color?: 1
   colorAnimation[0]:
     serializedVersion: 2
-    rgba: 184549375
+    rgba: 183377681
   colorAnimation[1]:
     serializedVersion: 2
     rgba: 4294967295
@@ -161,8 +161,8 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 1
-  minSize: 0.01
-  maxSize: 0.01
+  minSize: 0.1
+  maxSize: 0.1
   minEnergy: 1
   maxEnergy: 1
   minEmission: 500
