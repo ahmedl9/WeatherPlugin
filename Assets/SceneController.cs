@@ -7,8 +7,10 @@ using GoogleARCore;
 
 public class SceneController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+
+
+    // Use this for initialization
+    void Start () {
         QuitOnConnectionErrors();
 	}
 	
@@ -34,6 +36,12 @@ public class SceneController : MonoBehaviour {
             StartCoroutine(CodelabUtils.ToastAndExit("ARCore encountered a problem connecting. Please restart the app.", 5));
         }
     }
+
+    void setWeather()
+    {
+        return;
+    }
+
 
 }
 
