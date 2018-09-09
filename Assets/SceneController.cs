@@ -113,28 +113,28 @@ public class SceneController : MonoBehaviour {
         this.date = date; 
     }
 
-    public void setTemperature(double temp) {
-        this.temp = temp.ToString();
+    public void setTemperature(String temp) {
+        this.temp = temp;
     }
 
-    public void setHumidity(int humidity) {
-        this.humidity = humidity.ToString();
+    public void setHumidity(String humidity) {
+        this.humidity = humidity;
     }
 
-    public void setPressure(double pressure) {
-        this.pressure = pressure.ToString();
+    public void setPressure(String pressure) {
+        this.pressure = pressure;
     }
 
-    public void setWindSpeed(double windSpeed) {
-        this.windSpeed = windSpeed.ToString();
+    public void setWindSpeed(String windSpeed) {
+        this.windSpeed = windSpeed;
     }
 
-    public void setRainVol(double rainVol) {
+    public void setRainVol(String rainVol) {
         this.rainVol = rainVol.ToString(); 
     }
 
-    public void setSnow(double snowVol) {
-        this.snowVol = snowVol.ToString();
+    public void setSnow(String snowVol) {
+        this.snowVol = snowVol;
     }
 
     public void setWarning(String warning){
