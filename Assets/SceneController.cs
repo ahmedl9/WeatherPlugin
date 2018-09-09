@@ -90,6 +90,7 @@ public class SceneController : MonoBehaviour {
         } else if (precipitationVal.Equals("thunderstorm")) {
             rain.SetActive(true);
             setLightingActive();
+            flood.SetActive(true);
         } else if (precipitationVal.Equals("snow")) {
             snow.SetActive(true);
         } else if (precipitationVal.Equals("obscured")) {
