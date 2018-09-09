@@ -11,13 +11,13 @@ public class SceneController : MonoBehaviour {
     public GameObject lightning2;
     public GameObject lightning3;
     public GameObject rain;
-    public GameObject scoreboard;
     public GameObject snow;
     public GameObject flood;
     public GameObject cloud1;
     public GameObject cloud2;
     public GameObject fog;
 
+    public GameObject infoBoard;
 
     // Use this for initialization
     void Start () {
@@ -26,12 +26,12 @@ public class SceneController : MonoBehaviour {
         lightning2 = GameObject.Find("SimpleLightningBoltPrefab (1)");
         lightning3 = GameObject.Find("SimpleLightningBoltPrefab (2)");
         rain = GameObject.Find("Rain");
-        scoreboard = GameObject.Find("ScoreboardDisplay");
         snow = GameObject.Find("Snow");
         flood = GameObject.Find("Flooding");
         cloud1 = GameObject.Find("Clouds_Cumulus_G2");
         cloud2 = GameObject.Find("Clouds_Strato_G1");
         fog = GameObject.Find("Fog");
+        infoBoard = GameObject.Find("InfoBoard");
 
         lightning1.SetActive(false);
         lightning2.SetActive(false);
@@ -43,6 +43,8 @@ public class SceneController : MonoBehaviour {
         cloud2.SetActive(false);
         fog.SetActive(false);
 
+
+      
     }
 
     // Update is called once per frame
@@ -54,6 +56,7 @@ public class SceneController : MonoBehaviour {
             return;
         }
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        updateInfoBoard(3, 4, 5, 6, 6, 2, 2, "asdf");
     }
 
     void QuitOnConnectionErrors()
@@ -84,6 +87,24 @@ public class SceneController : MonoBehaviour {
         
         return;
     }
+
+    public void updateInfoBoard(double maxTemp, int humidity, double pressure, double windSpeed,
+                        double rain, double snow, double dateTime, String warning) {
+
+        String displayInfo = "Today's date: " + dateTime.ToString() + "\n" +
+                             "Max tempurature: " + maxTemp.ToString() + "\n" +
+                             "Humidity: " + humidity.ToString() + "\n" +
+                             "Pressure: " + pressure.ToString() + "\n" +
+                             "Wind Speed: " + windSpeed.ToString() + "\n" +
+                             "Rain Volume: " + rain.ToString() + "\n" +
+                             "Snow: " + snow.ToString() + "\n" +
+                             "WARNING: " + warning;
+
+        infoBoard.GetComponent<TextMesh>().text = displayInfo;
+    }
+
+
+
 
 
 }
