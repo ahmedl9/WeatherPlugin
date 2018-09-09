@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using GoogleARCore;
-
+using System;
 
 public class SceneController : MonoBehaviour {
 
@@ -41,7 +41,8 @@ public class SceneController : MonoBehaviour {
         flood.SetActive(false);
         cloud1.SetActive(false);
         cloud2.SetActive(false);
-        fog.SetActive(false); 
+        fog.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -67,8 +68,20 @@ public class SceneController : MonoBehaviour {
         }
     }
 
-    void setWeather()
+    void setWeather(String info)
     {
+        //Cloudy (Cloud)
+        //Rain (Rain+cloud)
+        //Thunderstorm (Rain+cloud+thunder)
+        //Snow (Snow + Cloud)
+        //Flooding (Rain+cloud+flood+thunder);
+        //Fog (Fod + Cloud);
+
+        //Temperature (2 digit)
+        //Humidity(2 digit) 
+
+        //first char is wheather
+        
         return;
     }
 

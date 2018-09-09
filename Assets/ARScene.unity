@@ -459,7 +459,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &589851278
 Transform:
   m_ObjectHideFlags: 0
@@ -595,7 +595,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: c6e9afa85a031c242b1e1eccb205ce46, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6e9afa85a031c242b1e1eccb205ce46, type: 2}
@@ -977,7 +977,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: be58d4ecc2aa3d64f94a1860992cbd49, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1500000, guid: be58d4ecc2aa3d64f94a1860992cbd49, type: 2}
       propertyPath: minSize
@@ -1017,7 +1017,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aa609fa965d5f747bac4d47b4cdf751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SimpleLightningBoltPrefab: {fileID: 0}
+  lightning1: {fileID: 0}
+  lightning2: {fileID: 0}
+  lightning3: {fileID: 0}
+  rain: {fileID: 0}
+  scoreboard: {fileID: 0}
+  snow: {fileID: 0}
+  flood: {fileID: 0}
+  cloud1: {fileID: 0}
+  cloud2: {fileID: 0}
+  fog: {fileID: 0}
 --- !u!4 &1764531383
 Transform:
   m_ObjectHideFlags: 0
@@ -1031,23 +1040,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1826966637 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 106988, guid: 15dec7b07032b2f4aa6f855bfbe120f7,
-    type: 2}
-  m_PrefabInternal: {fileID: 602848613}
---- !u!114 &1826966641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1826966637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2aa609fa965d5f747bac4d47b4cdf751, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SimpleLightningBoltPrefab: {fileID: 1826966637}
 --- !u!1001 &1900725046
 Prefab:
   m_ObjectHideFlags: 0
