@@ -16,8 +16,17 @@ public class SceneController : MonoBehaviour {
     public GameObject cloud1;
     public GameObject cloud2;
     public GameObject fog;
-
     public GameObject infoBoard;
+
+    private String date = "";
+    private String temp = "";
+    private String humidity = "";
+    private String pressure = "";
+    private String windSpeed = "";
+    private String rainVol = "";
+    private String snowVol = "";
+    private String warning = "";
+    private String precipitation = ""; 
 
     // Use this for initialization
     void Start () {
@@ -42,9 +51,6 @@ public class SceneController : MonoBehaviour {
         cloud1.SetActive(false);
         cloud2.SetActive(false);
         fog.SetActive(false);
-
-
-      
     }
 
     // Update is called once per frame
@@ -56,48 +62,94 @@ public class SceneController : MonoBehaviour {
             return;
         }
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
-        updateInfoBoard(3, 4, 5, 6, 6, 2, 2, "asdf");
+        updateInfoBoard(temp, humidity, pressure, windSpeed, rainVol, snowVol, date, warning);
     }
 
     void QuitOnConnectionErrors()
     {
         if (Session.Status == SessionStatus.ErrorPermissionNotGranted)
         {
-            StartCoroutine(CodelabUtils.ToastAndExit("Camera permission is needed to run this application.", 5));
+            StartCoroutine(CodelabUtils.ToastAndExit("Camera permission is " +
+                                                     "needed to run this " +
+                                                     "application.", 5));
         }
         else if (Session.Status.IsError())
         {
-            StartCoroutine(CodelabUtils.ToastAndExit("ARCore encountered a problem connecting. Please restart the app.", 5));
+            StartCoroutine(CodelabUtils.ToastAndExit("ARCore encountered a " +
+                                                     "problem connecting. " +
+                                                     "Please restart the " +
+                                                     "app.", 5));
         }
     }
 
-    void setWeather(String info)
-    {
-        //Cloudy (Cloud)
-        //Rain (Rain+cloud)
-        //Thunderstorm (Rain+cloud+thunder)
-        //Snow (Snow + Cloud)
-        //Flooding (Rain+cloud+flood+thunder);
-        //Fog (Fod + Cloud);
 
-        //Temperature (2 digit)
-        //Humidity(2 digit) 
-
-        //first char is wheather
-        
-        return;
+    public void setWeatherCondition(String precipitationVal) {
+        setCloudsActive();
+        if (precipitationVal.Equals("rain")) {
+            rain.SetActive(true);
+        } else if (precipitationVal.Equals("thunderstorm")) {
+            rain.SetActive(true);
+            setLightingActive();
+        } else if (precipitationVal.Equals("snow")) {
+            snow.SetActive(true);
+        } else if (precipitationVal.Equals("obscured")) {
+            fog.SetActive(true);
+        }
     }
 
-    public void updateInfoBoard(double maxTemp, int humidity, double pressure, double windSpeed,
-                        double rain, double snow, double dateTime, String warning) {
+    private void setCloudsActive() {
+        cloud1.SetActive(true);
+        cloud2.SetActive(true);
+    }
 
-        String displayInfo = "Today's date: " + dateTime.ToString() + "\n" +
-                             "Max tempurature: " + maxTemp.ToString() + "\n" +
-                             "Humidity: " + humidity.ToString() + "\n" +
-                             "Pressure: " + pressure.ToString() + "\n" +
-                             "Wind Speed: " + windSpeed.ToString() + "\n" +
-                             "Rain Volume: " + rain.ToString() + "\n" +
-                             "Snow: " + snow.ToString() + "\n" +
+    private void setLightingActive() {
+        lightning1.SetActive(true);
+        lightning2.SetActive(true);
+        lightning3.SetActive(true);
+    }
+
+    public void setDate(String date) {
+        this.date = date; 
+    }
+
+    public void setTemperature(double temp) {
+        this.temp = temp.ToString();
+    }
+
+    public void setHumidity(int humidity) {
+        this.humidity = humidity.ToString();
+    }
+
+    public void setPressure(double pressure) {
+        this.pressure = pressure.ToString();
+    }
+
+    public void setWindSpeed(double windSpeed) {
+        this.windSpeed = windSpeed.ToString();
+    }
+
+    public void setRainVol(double rainVol) {
+        this.rainVol = rainVol.ToString(); 
+    }
+
+    public void setSnow(double snowVol) {
+        this.snowVol = snowVol.ToString();
+    }
+
+    public void setWarning(String warning){
+        this.warning = warning; 
+    }
+
+    public void updateInfoBoard(String maxTemp, String humidity, String pressure, String windSpeed,
+                        String rain, String snow, String dateTime, String warning) {
+
+        String displayInfo = "Today's date: " + dateTime + "\n" +
+                             "Max tempurature: " + maxTemp + "\n" +
+                             "Humidity: " + humidity + "\n" +
+                             "Pressure: " + pressure + "\n" +
+                             "Wind Speed: " + windSpeed + "\n" +
+                             "Rain Volume: " + rain + "\n" +
+                             "Snow: " + snow + "\n" +
                              "WARNING: " + warning;
 
         infoBoard.GetComponent<TextMesh>().text = displayInfo;
